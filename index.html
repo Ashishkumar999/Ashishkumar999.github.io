@@ -4,274 +4,369 @@
 <title>Ashish Kumar | GenAI Security Portfolio</title>
 
 <style>
+
+/* GLOBAL STYLE */
+
 body {
-font-family: Arial;
-margin: 40px;
-background-color: #0d1117;
-color: #e6edf3;
+margin:0;
+font-family:Arial;
+color:#e6edf3;
+background:linear-gradient(270deg,#0d1117,#010409,#0d1117);
+background-size:600% 600%;
+animation:bgMove 18s ease infinite;
 }
 
-h1 {
-color: #58a6ff;
+/* BACKGROUND ANIMATION */
+
+@keyframes bgMove {
+0% {background-position:0% 50%;}
+50% {background-position:100% 50%;}
+100% {background-position:0% 50%;}
 }
 
-h2 {
-color: #79c0ff;
+/* NAVBAR */
+
+.navbar {
+background:#010409;
+padding:15px 40px;
+position:sticky;
+top:0;
+z-index:999;
 }
+
+.navbar a {
+color:#58a6ff;
+margin-right:25px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.navbar a:hover {
+color:white;
+}
+
+/* HERO */
+
+.hero {
+text-align:center;
+padding:110px 20px;
+}
+
+.hero h1 {
+color:#58a6ff;
+font-size:52px;
+margin-bottom:10px;
+}
+
+.hero h3 {
+color:#79c0ff;
+font-size:22px;
+}
+
+.hero button {
+margin-top:20px;
+padding:12px 22px;
+border:none;
+border-radius:6px;
+background:#238636;
+color:white;
+cursor:pointer;
+font-size:14px;
+}
+
+/* CURSOR EFFECT */
+
+.cursor {
+animation:blink 1s infinite;
+}
+
+@keyframes blink {
+0% {opacity:1;}
+50% {opacity:0;}
+100% {opacity:1;}
+}
+
+/* SECTION STYLE */
 
 .section {
-margin-bottom: 40px;
+padding:70px 40px;
 }
 
-a {
-color: #58a6ff;
-text-decoration: none;
+.section h2 {
+color:#79c0ff;
 }
+
+/* GRID */
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+/* CARD */
 
 .card {
-background-color: #161b22;
-padding: 20px;
-border-radius: 10px;
-margin-bottom: 15px;
+background:#161b22;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
 }
+
+.card:hover {
+transform:translateY(-6px);
+box-shadow:0px 0px 12px #58a6ff55;
+}
+
+/* FOOTER */
+
+.footer {
+text-align:center;
+padding:40px;
+background:#010409;
+margin-top:40px;
+}
+
 </style>
 
 </head>
 
 <body>
 
+
+
+<!-- NAVIGATION -->
+
+<div class="navbar">
+
+<a href="#">Home</a>
+<a href="#projects">Projects</a>
+<a href="#writeups">Writeups</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+
+
+<!-- HERO SECTION -->
+
+<div class="hero">
+
 <h1>Ashish Kumar</h1>
 
-<h3>Cybersecurity Analyst | GenAI Security | VAPT | AI Application Security</h3>
+<h3 id="typing-text"><span class="cursor">|</span></h3>
 
 <p>
-GitHub:
-<a href="https://github.com/Ashishkumar999" target="_blank">
-github.com/Ashishkumar999
-</a>
+Securing LLM applications through prompt injection testing, RAG pipeline attack analysis,
+and OWASP LLM Top 10 security research.
 </p>
 
+<button onclick="window.location.href='https://github.com/Ashishkumar999'">
+View GitHub
+</button>
 
-<div class="section">
-
-<h2>About Me</h2>
-
-<p>
-Cybersecurity Analyst specializing in GenAI security testing, prompt injection attacks,
-OWASP LLM Top 10 analysis, RAG pipeline vulnerabilities, and application security testing.
-Focused on transitioning into GenAI Security Engineering roles with hands-on lab experience
-in LLM attack techniques and AI threat modeling.
-</p>
+<button>
+Resume (Add Later)
+</button>
 
 </div>
 
 
-<div class="section">
 
-<h2>Core Skills</h2>
+<!-- PROJECTS -->
 
-<ul>
-<li>Prompt Injection Testing</li>
-<li>LLM Jailbreak Techniques</li>
-<li>RAG Security Analysis</li>
-<li>STRIDE Threat Modeling</li>
-<li>OWASP Top 10 Security Testing</li>
-<li>OWASP LLM Top 10 Security Testing</li>
-<li>API Security Testing</li>
-<li>Web Application VAPT</li>
-</ul>
-
-</div>
-
-
-<div class="section">
-
-<h2>Security Domains</h2>
-
-<ul>
-<li>LLM Application Security</li>
-<li>Prompt Injection & Jailbreak Testing</li>
-<li>RAG Pipeline Security</li>
-<li>AI Threat Modeling</li>
-<li>Detection Engineering for GenAI Systems</li>
-<li>Web & API Penetration Testing</li>
-</ul>
-
-</div>
-
-
-<div class="section">
+<div class="section" id="projects">
 
 <h2>Highlighted Projects</h2>
 
+<div class="grid">
+
 <div class="card">
+
 <h3>GenAI Security Lab</h3>
-<p>
-Hands-on security research repository covering prompt injection attacks,
-retrieval-layer vulnerabilities, detection engineering techniques,
-threat modeling exercises, and secure LLM architecture design patterns.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/genai-security-lab" target="_blank">
+
+Hands-on experiments covering prompt injection attacks, detection engineering,
+threat modeling, and secure LLM deployment practices.
+
+<br><br>
+
+<a href="https://github.com/Ashishkumar999/genai-security-lab">
 View Repository →
 </a>
-</p>
+
 </div>
 
 
+
 <div class="card">
-<h3>Gandalf LLM Prompt Injection Walkthrough</h3>
-<p>
-Demonstrated guardrail bypass techniques using instruction override,
-context manipulation, and system prompt extraction mapped to
-OWASP LLM Top 10 (LLM01: Prompt Injection).
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/gandalf-llm-prompt-injection-walkthrough" target="_blank">
+
+<h3>Gandalf Prompt Injection Walkthrough</h3>
+
+Guardrail bypass techniques mapped to OWASP LLM Top 10 using instruction override
+and system prompt extraction attacks.
+
+<br><br>
+
+<a href="https://github.com/Ashishkumar999/gandalf-llm-prompt-injection-walkthrough">
 View Repository →
 </a>
-</p>
+
 </div>
 
 
+
 <div class="card">
-<h3>RAG Chatbot Vulnerability Lab</h3>
-<p>
-Explored metadata filter bypass and retrieval-layer prompt injection
-attacks affecting LLM response integrity in retrieval-augmented pipelines.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/genai-security-lab" target="_blank">
-View RAG Lab →
+
+<h3>RAG Vulnerability Lab</h3>
+
+Metadata filter bypass and retrieval-layer injection affecting LLM response integrity.
+
+<br><br>
+
+<a href="https://github.com/Ashishkumar999/genai-security-lab">
+View Research →
 </a>
-</p>
+
 </div>
 
 
+
 <div class="card">
+
 <h3>GenAI Pentesting Methodology</h3>
-<p>
-Developed a structured workflow for testing LLM-based applications against
-prompt injection, sensitive data leakage, and privilege escalation scenarios.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/genai-security-lab" target="_blank">
+
+Structured workflow for testing LLM apps against injection and leakage risks.
+
+<br><br>
+
+<a href="https://github.com/Ashishkumar999/genai-security-lab">
 View Methodology →
 </a>
-</p>
+
+</div>
+
 </div>
 
 </div>
 
 
-<div class="section">
+
+<!-- WRITEUPS -->
+
+<div class="section" id="writeups">
 
 <h2>Security Writeups</h2>
 
-<div class="card">
-<h3>Prompt Injection Attack Techniques</h3>
-<p>
-Documented real-world payload strategies used to bypass system instructions
-and extract hidden context from LLM-based applications.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/genai-security-lab" target="_blank">
-Read Writeup →
-</a>
-</p>
-</div>
-
+<div class="grid">
 
 <div class="card">
-<h3>Gandalf Guardrail Bypass Walkthrough</h3>
-<p>
-Step-by-step walkthrough demonstrating instruction override attacks
-mapped to OWASP LLM Top 10 prompt injection scenarios.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/gandalf-llm-prompt-injection-walkthrough" target="_blank">
-Read Writeup →
-</a>
-</p>
+Prompt Injection Payload Techniques
 </div>
-
 
 <div class="card">
-<h3>RAG Pipeline Security Risks</h3>
-<p>
-Analysis of retrieval-layer injection risks including metadata filter
-bypass and context manipulation in RAG-based AI systems.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/genai-security-lab" target="_blank">
-Read Writeup →
-</a>
-</p>
+Gandalf Guardrail Bypass Strategies
 </div>
-
 
 <div class="card">
-<h3>STRIDE Threat Modeling for GenAI Applications</h3>
-<p>
-Applied STRIDE methodology to identify attack surfaces across LLM
-pipelines and retrieval-augmented architectures.
-</p>
-<p>
-<a href="https://github.com/Ashishkumar999/genai-security-lab" target="_blank">
-Read Writeup →
-</a>
-</p>
+RAG Pipeline Attack Surface Analysis
+</div>
+
+<div class="card">
+STRIDE Threat Modeling for LLM Apps
+</div>
+
 </div>
 
 </div>
 
 
-<div class="section">
 
-<h2>Tools & Technologies</h2>
+<!-- SKILLS -->
 
-<p>
-Burp Suite | OWASP ZAP | Kali Linux | Postman | Python | Wireshark | GitHub
-</p>
+<div class="section" id="skills">
 
-<p>
-Prompt Injection Testing | RAG Security Analysis | STRIDE Threat Modeling
-</p>
+<h2>Security Skills</h2>
+
+<div class="grid">
+
+<div class="card">Prompt Injection Testing</div>
+<div class="card">LLM Jailbreak Techniques</div>
+<div class="card">RAG Security Analysis</div>
+<div class="card">OWASP LLM Top 10</div>
+<div class="card">STRIDE Threat Modeling</div>
+<div class="card">API Security Testing</div>
+<div class="card">Web Application VAPT</div>
+<div class="card">AI Attack Surface Mapping</div>
+
+</div>
 
 </div>
 
 
-<div class="section">
 
-<h2>Certifications</h2>
+<!-- CONTACT -->
 
-<ul>
-<li>CEHv11</li>
-<li>DFE</li>
-</ul>
-
-</div>
-
-
-<div class="section">
+<div class="section" id="contact">
 
 <h2>Contact</h2>
 
-<p>
+<div class="card">
+
 GitHub:
-<a href="https://github.com/Ashishkumar999" target="_blank">
+<br>
+<a href="https://github.com/Ashishkumar999">
 github.com/Ashishkumar999
 </a>
-</p>
 
-<p>
+<br><br>
+
 LinkedIn:
-<a href="https://linkedin.com/in/YOUR-LINK" target="_blank">
-linkedin.com/in/YOUR-LINK
-</a>
-</p>
+<br>
+(Add later)
 
 </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© 2026 Ashish Kumar | GenAI Security Portfolio
+
+</div>
+
+
+
+<!-- TERMINAL TYPING SCRIPT -->
+
+<script>
+
+const text = "GenAI Security Engineer | Prompt Injection Testing | VAPT | AI AppSec";
+
+let i = 0;
+
+function typingEffect() {
+
+if(i < text.length) {
+
+document.getElementById("typing-text").innerHTML =
+text.substring(0,i+1) + '<span class="cursor">|</span>';
+
+i++;
+
+setTimeout(typingEffect,40);
+
+}
+
+}
+
+typingEffect();
+
+</script>
 
 
 </body>
