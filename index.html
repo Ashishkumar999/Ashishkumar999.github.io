@@ -1,7 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Ashish Kumar | GenAI Security Portfolio</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Content-Security-Policy"
+content="
+default-src 'self';
+img-src 'self' https://github.com https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com;
+script-src 'self' 'unsafe-inline';
+style-src 'self' 'unsafe-inline';
+frame-ancestors 'none';
+base-uri 'self';
+form-action 'none';
+">
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<title>Ashish Kumar Giri | GenAI Security Portfolio</title>
 
 <style>
 
@@ -10,18 +29,6 @@ margin:0;
 font-family:Arial;
 color:#e6edf3;
 background:#010409;
-overflow-x:hidden;
-}
-
-/* MATRIX BACKGROUND */
-
-#matrixCanvas {
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
 }
 
 /* NAVBAR */
@@ -45,21 +52,49 @@ font-weight:bold;
 color:white;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero {
+position:relative;
 text-align:center;
-padding:110px 20px;
+padding:120px 20px;
+overflow:hidden;
+}
+
+/* MATRIX CANVAS INSIDE HERO ONLY */
+
+#matrixCanvas {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+opacity:0.18;
+}
+
+/* PROFILE PHOTO */
+
+.profile-pic {
+width:150px;
+height:150px;
+border-radius:50%;
+border:4px solid #58a6ff;
+margin-bottom:20px;
+box-shadow:0px 0px 20px #58a6ff66;
 }
 
 .hero h1 {
 color:#58a6ff;
 font-size:52px;
+margin:10px 0;
 }
 
 .hero h3 {
 color:#79c0ff;
 }
+
+/* BUTTONS */
 
 .hero button {
 margin-top:20px;
@@ -84,7 +119,7 @@ animation:blink 1s infinite;
 100% {opacity:1;}
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section {
 padding:70px 40px;
@@ -109,6 +144,7 @@ background:#161b22;
 padding:20px;
 border-radius:12px;
 transition:0.3s;
+text-align:center;
 }
 
 .card:hover {
@@ -125,35 +161,41 @@ background:#010409;
 margin-top:40px;
 }
 
+.stats img {
+width:100%;
+max-width:450px;
+margin:10px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-
-<canvas id="matrixCanvas"></canvas>
-
-
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 
 <div class="navbar">
-
 <a href="#">Home</a>
 <a href="#projects">Projects</a>
 <a href="#writeups">Writeups</a>
 <a href="#skills">Skills</a>
+<a href="#stats">GitHub Stats</a>
 <a href="#contact">Contact</a>
-
 </div>
-
 
 
 <!-- HERO -->
 
 <div class="hero">
 
-<h1>Ashish Kumar</h1>
+<canvas id="matrixCanvas"></canvas>
+
+<img src="https://github.com/Ashishkumar999.png"
+class="profile-pic"
+alt="Ashish Kumar Giri Profile Photo">
+
+<h1>Ashish Kumar Giri</h1>
 
 <h3 id="typing-text"><span class="cursor">|</span></h3>
 
@@ -177,7 +219,6 @@ Resume (Add Later)
 </div>
 
 
-
 <!-- PROJECTS -->
 
 <div class="section" id="projects">
@@ -186,31 +227,14 @@ Resume (Add Later)
 
 <div class="grid">
 
-<div class="card">
-<h3>GenAI Security Lab</h3>
-Hands-on experiments covering prompt injection attacks, detection engineering,
-threat modeling, and secure LLM deployment practices.
-</div>
-
-<div class="card">
-<h3>Gandalf Prompt Injection Walkthrough</h3>
-Guardrail bypass techniques mapped to OWASP LLM Top 10 using instruction override.
-</div>
-
-<div class="card">
-<h3>RAG Vulnerability Lab</h3>
-Metadata filter bypass and retrieval-layer injection affecting LLM responses.
-</div>
-
-<div class="card">
-<h3>GenAI Pentesting Methodology</h3>
-Structured workflow for testing LLM apps against injection and leakage risks.
-</div>
+<div class="card">GenAI Security Lab</div>
+<div class="card">Gandalf Prompt Injection Walkthrough</div>
+<div class="card">RAG Vulnerability Lab</div>
+<div class="card">GenAI Pentesting Methodology</div>
 
 </div>
 
 </div>
-
 
 
 <!-- WRITEUPS -->
@@ -229,7 +253,6 @@ Structured workflow for testing LLM apps against injection and leakage risks.
 </div>
 
 </div>
-
 
 
 <!-- SKILLS -->
@@ -254,6 +277,20 @@ Structured workflow for testing LLM apps against injection and leakage risks.
 </div>
 
 
+<!-- GITHUB STATS -->
+
+<div class="section stats" id="stats">
+
+<h2>GitHub Activity</h2>
+
+<img src="https://github-readme-stats.vercel.app/api?username=Ashishkumar999&show_icons=true&theme=github_dark">
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Ashishkumar999&theme=github-dark">
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ashishkumar999&layout=compact&theme=github_dark">
+
+</div>
+
 
 <!-- CONTACT -->
 
@@ -263,17 +300,15 @@ Structured workflow for testing LLM apps against injection and leakage risks.
 
 <div class="card">
 
-GitHub:
-<br>
-<a href="https://github.com/Ashishkumar999" target="_blank">
+GitHub:<br>
+<a href="https://github.com/Ashishkumar999">
 github.com/Ashishkumar999
 </a>
 
 <br><br>
 
-LinkedIn:
-<br>
-<a href="https://www.linkedin.com/in/ashish-kumar-giri-a1419821a" target="_blank">
+LinkedIn:<br>
+<a href="https://www.linkedin.com/in/ashish-kumar-giri-a1419821a">
 linkedin.com/in/ashish-kumar-giri-a1419821a
 </a>
 
@@ -282,51 +317,46 @@ linkedin.com/in/ashish-kumar-giri-a1419821a
 </div>
 
 
-
 <!-- FOOTER -->
 
 <div class="footer">
-
-© 2026 Ashish Kumar | GenAI Security Portfolio
-
+© 2026 Ashish Kumar Giri | GenAI Security Portfolio
 </div>
 
 
-
-<!-- MATRIX BACKGROUND SCRIPT -->
-
 <script>
 
-const canvas = document.getElementById("matrixCanvas");
-const ctx = canvas.getContext("2d");
+/* MATRIX HERO EFFECT */
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+const canvas=document.getElementById("matrixCanvas");
+const ctx=canvas.getContext("2d");
 
-const letters = "01";
-const fontSize = 14;
-const columns = canvas.width/fontSize;
+canvas.height=document.querySelector(".hero").offsetHeight;
+canvas.width=window.innerWidth;
 
-const drops = [];
+const letters="01";
+const fontSize=14;
+const columns=canvas.width/fontSize;
 
-for(let x=0;x<columns;x++)
-drops[x]=1;
+const drops=[];
+
+for(let x=0;x<columns;x++) drops[x]=1;
 
 function draw(){
 
-ctx.fillStyle="rgba(1,4,9,0.05)";
+ctx.fillStyle="rgba(1,4,9,0.15)";
 ctx.fillRect(0,0,canvas.width,canvas.height);
 
-ctx.fillStyle="#0f0";
+ctx.fillStyle="#00ff9c";
 ctx.font=fontSize+"px monospace";
 
 for(let i=0;i<drops.length;i++){
 
-const text = letters.charAt(Math.floor(Math.random()*letters.length));
+const text=letters.charAt(Math.floor(Math.random()*letters.length));
 
 ctx.fillText(text,i*fontSize,drops[i]*fontSize);
 
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+if(drops[i]*fontSize>canvas.height && Math.random()>0.985)
 drops[i]=0;
 
 drops[i]++;
@@ -335,21 +365,21 @@ drops[i]++;
 
 }
 
-setInterval(draw,33);
+setInterval(draw,45);
 
 
 /* TERMINAL TYPING EFFECT */
 
-const typingText = "GenAI Security Engineer | Prompt Injection Testing | VAPT | AI AppSec";
+const typingText="GenAI Security Engineer | Prompt Injection Testing | VAPT | AI AppSec";
 
-let index = 0;
+let index=0;
 
 function typeEffect(){
 
-if(index < typingText.length){
+if(index<typingText.length){
 
-document.getElementById("typing-text").innerHTML =
-typingText.substring(0,index+1) + '<span class="cursor">|</span>';
+document.getElementById("typing-text").innerHTML=
+typingText.substring(0,index+1)+'<span class="cursor">|</span>';
 
 index++;
 
@@ -362,7 +392,6 @@ setTimeout(typeEffect,40);
 typeEffect();
 
 </script>
-
 
 </body>
 </html>
