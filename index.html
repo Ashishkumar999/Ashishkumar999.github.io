@@ -5,23 +5,23 @@
 
 <style>
 
-/* GLOBAL STYLE */
-
 body {
 margin:0;
 font-family:Arial;
 color:#e6edf3;
-background:linear-gradient(270deg,#0d1117,#010409,#0d1117);
-background-size:600% 600%;
-animation:bgMove 18s ease infinite;
+background:#010409;
+overflow-x:hidden;
 }
 
-/* BACKGROUND ANIMATION */
+/* MATRIX BACKGROUND */
 
-@keyframes bgMove {
-0% {background-position:0% 50%;}
-50% {background-position:100% 50%;}
-100% {background-position:0% 50%;}
+#matrixCanvas {
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
 /* NAVBAR */
@@ -55,12 +55,10 @@ padding:110px 20px;
 .hero h1 {
 color:#58a6ff;
 font-size:52px;
-margin-bottom:10px;
 }
 
 .hero h3 {
 color:#79c0ff;
-font-size:22px;
 }
 
 .hero button {
@@ -71,10 +69,10 @@ border-radius:6px;
 background:#238636;
 color:white;
 cursor:pointer;
-font-size:14px;
+margin-right:10px;
 }
 
-/* CURSOR EFFECT */
+/* CURSOR */
 
 .cursor {
 animation:blink 1s infinite;
@@ -86,7 +84,7 @@ animation:blink 1s infinite;
 100% {opacity:1;}
 }
 
-/* SECTION STYLE */
+/* SECTION */
 
 .section {
 padding:70px 40px;
@@ -134,6 +132,8 @@ margin-top:40px;
 <body>
 
 
+<canvas id="matrixCanvas"></canvas>
+
 
 <!-- NAVIGATION -->
 
@@ -149,7 +149,7 @@ margin-top:40px;
 
 
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <div class="hero">
 
@@ -164,6 +164,10 @@ and OWASP LLM Top 10 security research.
 
 <button onclick="window.location.href='https://github.com/Ashishkumar999'">
 View GitHub
+</button>
+
+<button onclick="window.location.href='https://www.linkedin.com/in/ashish-kumar-giri-a1419821a'">
+View LinkedIn
 </button>
 
 <button>
@@ -183,67 +187,24 @@ Resume (Add Later)
 <div class="grid">
 
 <div class="card">
-
 <h3>GenAI Security Lab</h3>
-
 Hands-on experiments covering prompt injection attacks, detection engineering,
 threat modeling, and secure LLM deployment practices.
-
-<br><br>
-
-<a href="https://github.com/Ashishkumar999/genai-security-lab">
-View Repository →
-</a>
-
 </div>
 
-
-
 <div class="card">
-
 <h3>Gandalf Prompt Injection Walkthrough</h3>
-
-Guardrail bypass techniques mapped to OWASP LLM Top 10 using instruction override
-and system prompt extraction attacks.
-
-<br><br>
-
-<a href="https://github.com/Ashishkumar999/gandalf-llm-prompt-injection-walkthrough">
-View Repository →
-</a>
-
+Guardrail bypass techniques mapped to OWASP LLM Top 10 using instruction override.
 </div>
 
-
-
 <div class="card">
-
 <h3>RAG Vulnerability Lab</h3>
-
-Metadata filter bypass and retrieval-layer injection affecting LLM response integrity.
-
-<br><br>
-
-<a href="https://github.com/Ashishkumar999/genai-security-lab">
-View Research →
-</a>
-
+Metadata filter bypass and retrieval-layer injection affecting LLM responses.
 </div>
 
-
-
 <div class="card">
-
 <h3>GenAI Pentesting Methodology</h3>
-
 Structured workflow for testing LLM apps against injection and leakage risks.
-
-<br><br>
-
-<a href="https://github.com/Ashishkumar999/genai-security-lab">
-View Methodology →
-</a>
-
 </div>
 
 </div>
@@ -260,21 +221,10 @@ View Methodology →
 
 <div class="grid">
 
-<div class="card">
-Prompt Injection Payload Techniques
-</div>
-
-<div class="card">
-Gandalf Guardrail Bypass Strategies
-</div>
-
-<div class="card">
-RAG Pipeline Attack Surface Analysis
-</div>
-
-<div class="card">
-STRIDE Threat Modeling for LLM Apps
-</div>
+<div class="card">Prompt Injection Payload Techniques</div>
+<div class="card">Gandalf Guardrail Bypass Strategies</div>
+<div class="card">RAG Pipeline Attack Surface Analysis</div>
+<div class="card">STRIDE Threat Modeling for LLM Apps</div>
 
 </div>
 
@@ -315,7 +265,7 @@ STRIDE Threat Modeling for LLM Apps
 
 GitHub:
 <br>
-<a href="https://github.com/Ashishkumar999">
+<a href="https://github.com/Ashishkumar999" target="_blank">
 github.com/Ashishkumar999
 </a>
 
@@ -323,7 +273,9 @@ github.com/Ashishkumar999
 
 LinkedIn:
 <br>
-(Add later)
+<a href="https://www.linkedin.com/in/ashish-kumar-giri-a1419821a" target="_blank">
+linkedin.com/in/ashish-kumar-giri-a1419821a
+</a>
 
 </div>
 
@@ -341,30 +293,73 @@ LinkedIn:
 
 
 
-<!-- TERMINAL TYPING SCRIPT -->
+<!-- MATRIX BACKGROUND SCRIPT -->
 
 <script>
 
-const text = "GenAI Security Engineer | Prompt Injection Testing | VAPT | AI AppSec";
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
 
-let i = 0;
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
-function typingEffect() {
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width/fontSize;
 
-if(i < text.length) {
+const drops = [];
+
+for(let x=0;x<columns;x++)
+drops[x]=1;
+
+function draw(){
+
+ctx.fillStyle="rgba(1,4,9,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#0f0";
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text = letters.charAt(Math.floor(Math.random()*letters.length));
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,33);
+
+
+/* TERMINAL TYPING EFFECT */
+
+const typingText = "GenAI Security Engineer | Prompt Injection Testing | VAPT | AI AppSec";
+
+let index = 0;
+
+function typeEffect(){
+
+if(index < typingText.length){
 
 document.getElementById("typing-text").innerHTML =
-text.substring(0,i+1) + '<span class="cursor">|</span>';
+typingText.substring(0,index+1) + '<span class="cursor">|</span>';
 
-i++;
+index++;
 
-setTimeout(typingEffect,40);
-
-}
+setTimeout(typeEffect,40);
 
 }
 
-typingEffect();
+}
+
+typeEffect();
 
 </script>
 
